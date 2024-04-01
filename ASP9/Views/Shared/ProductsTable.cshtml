@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Products as table";
+}
+@model IEnumerable<Product>
+@addTagHelper *, ASP9
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .display-3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+            text-align: left;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h2 class="display-3">List of Products</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.ToList())
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p><a href="/Home/Index">Back to Home</a></p>
+    </div>
+</body>
+</html>

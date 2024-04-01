@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Start Page";
+}
+@model int
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .display-3 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin: auto;
+            width: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-outline-primary {
+            background-color: transparent;
+            border: 2px solid #007bff;
+            color: #007bff;
+        }
+
+        .btn-outline-secondary {
+            background-color: transparent;
+            border: 2px solid #6c757d;
+            color: #6c757d;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <div class="display-3">Додати продукти</div>
+        <form method="post">
+            <div class="form-group">
+                <label>Введіть ID продукту:</label>
+                <input class="form-control" type="number" name="id" />
+            </div>
+            <div class="form-group">
+                <label>Введіть назву продукту:</label>
+                <input class="form-control" type="text" name="name" />
+            </div>
+            <div class="form-group">
+                <label>Введіть вартість продукту:</label>
+                <input class="form-control" type="number" name="price" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-outline-primary" asp-action="Index">Додати</button>
+            <button type="submit" class="btn btn-outline-secondary" asp-action="ViewProducts">Переглянути список</button>
+        </form>
+    </div>
+</body>
+</html>

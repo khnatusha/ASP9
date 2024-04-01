@@ -1,0 +1,96 @@
+﻿@model WeatherData
+@{
+    string imageUrl = $"http://openweathermap.org/img/w/{Model.Weather.First().Icon}.png";
+}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .weather-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+            .weather-info img {
+                margin-right: 10px;
+            }
+
+            .weather-info label {
+                font-size: 40px;
+                color: blue;
+                font-weight: bold;
+            }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .col {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+    </style>
+
+
+    <div class="container text-center">
+        <h1>Weather in @Model.Name</h1>
+        <div class="weather-info">
+            <label>@Convert.ToInt32(Model.Main.Temp)℃</label>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Weather: @Model.Weather.First().Main</label>
+            </div>
+            <div class="col">
+                <label>Condition: @Model.Weather.First().Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Temperature: @Model.Main.Temp℃</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Wind speed: @Model.Wind.Speed m/s</label>
+            </div>
+        </div>
+    </div>
+
+
